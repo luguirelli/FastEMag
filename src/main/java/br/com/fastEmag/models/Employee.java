@@ -30,10 +30,10 @@ public class Employee {
 
 	@Column(name = "DS_CPF")
 	private String cpf;
-	
+
 	@Column(name = "DS_EMAIL")
 	private String email;
-	
+
 	@Column(name = "DS_SENHA")
 	private String password;
 
@@ -80,6 +80,22 @@ public class Employee {
 
 	public void setHospital(Hospital hospital) {
 		this.hospital = hospital;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }

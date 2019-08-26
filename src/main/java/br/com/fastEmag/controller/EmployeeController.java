@@ -15,14 +15,23 @@ import br.com.fastEmag.service.EmployeeService;
 @RestController
 @RequestMapping(path = "/employee")
 public class EmployeeController {
-	
+
 	@Autowired
 	EmployeeService employeeService;
-	
+
+	@PostMapping(value = "/login2", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public Employee login2(@RequestBody Login login) {
+		try {
+			return employeeService.findEmployee(login.getEmail(), login.getSenha());
+		} catch (Exception ex) {
+			throw new BRException("Erro ao fazer login: " + ex.toString());
+		}
+	}
+
 	@PostMapping(value = "/login", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public Employee login(@RequestBody Login login) {
 		try {
-			return employeeService.findEmployee(login.getEmail(), login.getSenha());
+			return employeeService.login(login.getEmail(), login.getSenha());
 		} catch (Exception ex) {
 			throw new BRException("Erro ao fazer login: " + ex.toString());
 		}
