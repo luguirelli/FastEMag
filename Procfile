@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/FastEMag*.jar -Dspring.datasource.url=jdbc:postgresql://zufcsttikfodbe:7c00c42595f358ac51e0fdba8cf4c52e10679d7eca7227eaca6c9875d7d848c8@ec2-50-17-227-28.compute-1.amazonaws.com:5432/d7eh8jgk5p76um
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/FastEMag*.jar -Dspring.datasource.url=jdbc:postgresql://ec2-50-17-227-28.compute-1.amazonaws.com:5432/d7eh8jgk5p76um
