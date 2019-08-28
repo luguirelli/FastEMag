@@ -15,6 +15,7 @@ public class EquipamentTO {
 	private String nextPreventive;
 	private Long hospitalSector;
 	private Long patternEquipament;
+	private Long hospitalId;
 
 	public String getName() {
 		return name;
@@ -104,4 +105,13 @@ public class EquipamentTO {
 		this.nextPreventive = nextPreventive;
 	}
 
+	public Long getHospitalId() {
+		return hospitalId;
+	}
+
+	public void setHospitalId(Long hospitalId) {
+		this.hospitalId = hospitalId;
+	}
+
+	
 }

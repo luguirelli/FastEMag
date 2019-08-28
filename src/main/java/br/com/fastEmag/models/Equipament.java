@@ -65,6 +65,12 @@ public class Equipament {
 	@JoinColumn(name = "ID_EQ_PADRAO")
 	@NotNull
 	private PatternEquipament patternEquipament;
+	
+	@ManyToOne(targetEntity = Hospital.class, fetch = FetchType.EAGER)
+	@JsonIgnore
+	@JoinColumn(name = "ID_HOSPITAL")
+	@NotNull
+	private Hospital hospital;
 
 	public Long getId() {
 		return id;
@@ -161,7 +167,13 @@ public class Equipament {
 	public void setPatternEquipament(PatternEquipament patternEquipament) {
 		this.patternEquipament = patternEquipament;
 	}
-	
-	
+
+	public Hospital getHospital() {
+		return hospital;
+	}
+
+	public void setHospital(Hospital hospital) {
+		this.hospital = hospital;
+	}
 	
 }

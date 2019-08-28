@@ -34,6 +34,11 @@ public class OSEquipament {
 	@JoinColumn(name = "ID_FUNCIONARIO")
 	private Employee employee;
 
+	@ManyToOne(targetEntity = Hospital.class, fetch = FetchType.EAGER)
+	@JsonIgnore
+	@JoinColumn(name = "ID_HOSPITAL")
+	private Hospital hospital;
+
 	@Column(name = "DT_OS")
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	private Date dtOS;
@@ -60,6 +65,14 @@ public class OSEquipament {
 
 	public void setDtOS(Date dtOS) {
 		this.dtOS = dtOS;
+	}
+
+	public Hospital getHospital() {
+		return hospital;
+	}
+
+	public void setHospital(Hospital hospital) {
+		this.hospital = hospital;
 	}
 
 }

@@ -33,6 +33,11 @@ public class DefectEquipament {
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	private Date dtDefect;
 
+	@ManyToOne(targetEntity = Hospital.class, fetch = FetchType.EAGER)
+	@JsonIgnore
+	@JoinColumn(name = "ID_HOSPITAL")
+	private Hospital hospital;
+
 	public DefectEquipamentId getDefectEquipamentId() {
 		return defectEquipamentId;
 	}
@@ -47,6 +52,14 @@ public class DefectEquipament {
 
 	public void setDtDefect(Date dtDefect) {
 		this.dtDefect = dtDefect;
+	}
+
+	public Hospital getHospital() {
+		return hospital;
+	}
+
+	public void setHospital(Hospital hospital) {
+		this.hospital = hospital;
 	}
 
 }

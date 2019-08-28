@@ -13,11 +13,14 @@ import org.springframework.stereotype.Service;
 import br.com.fastEmag.models.DefectEquipament;
 import br.com.fastEmag.models.Equipament;
 import br.com.fastEmag.models.EquipamentTO;
+import br.com.fastEmag.models.Hospital;
 import br.com.fastEmag.models.HospitalSector;
+import br.com.fastEmag.models.HospitalTO;
 import br.com.fastEmag.models.OSEquipament;
 import br.com.fastEmag.models.PatternEquipament;
 import br.com.fastEmag.repository.DefectEquipamentRepository;
 import br.com.fastEmag.repository.EquipamentRepository;
+import br.com.fastEmag.repository.HospitalRepository;
 import br.com.fastEmag.repository.HospitalSectorRepository;
 import br.com.fastEmag.repository.OSEquipamentRepository;
 import br.com.fastEmag.repository.PatternEquipamentRepository;
@@ -40,11 +43,15 @@ public class EquipamentService {
 
 	@Autowired
 	DefectEquipamentRepository defectEquipamentRepository;
+	
+	@Autowired
+	HospitalRepository hospitalRepository;
 
 	public Equipament newEquipament(EquipamentTO equipamento) throws ParseException {
 		SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
 		Date data = formato.parse(equipamento.getNextPreventive());
 
+		Hospital hospital = hospitalRepository.find(equipamento.getHospitalId());
 		HospitalSector hospitalSector = hospitalSectorRepository.find(equipamento.getHospitalSector());
 		PatternEquipament patternEquipament = patternEquipamentRepository.find(equipamento.getPatternEquipament());
 		Equipament equipament = new Equipament();
@@ -59,6 +66,7 @@ public class EquipamentService {
 		equipament.setProducer(equipamento.getProducer());
 		equipament.setSerialNumber(equipamento.getSerialNumber());
 		equipament.setNextPreventive(data);
+		equipament.setHospital(hospital);
 
 		return equipamentRepository.save(equipament);
 	}
@@ -67,12 +75,16 @@ public class EquipamentService {
 		return equipamentRepository.findAll();
 	}
 
-	public List<OSEquipament> findAllOS() {
-		return osEquipamentRepository.find();
+	public List<Equipament> listAllEquipamentByHospital(HospitalTO hospitalTO){
+		return equipamentRepository.findAllByHospital(hospitalTO.getId());
+	}
+	
+	public List<OSEquipament> findAllOS(HospitalTO hospitalTO) {
+		return osEquipamentRepository.findAllByHospital(hospitalTO.getId());
 	}
 
-	public List<DefectEquipament> findAllDefects() {
-		return defectEquipamentRepository.find();
+	public List<DefectEquipament> findAllDefects(HospitalTO hospitalTO) {
+		return defectEquipamentRepository.findAll(hospitalTO.getId());
 	}
 
 }
