@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.fastEmag.exception.BRException;
 import br.com.fastEmag.models.Employee;
+import br.com.fastEmag.models.FuncionarioTO;
 import br.com.fastEmag.models.Login;
 import br.com.fastEmag.service.EmployeeService;
 
@@ -29,9 +30,9 @@ public class EmployeeController {
 	}
 
 	@PostMapping(value = "/login", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public Employee login(@RequestBody Login login) {
+	public FuncionarioTO login(@RequestBody Login login) {
 		try {
-			return employeeService.login(login.getEmail(), login.getSenha());
+			return FuncionarioTO.converter(employeeService.login(login.getEmail(), login.getSenha()));
 		} catch (Exception ex) {
 			throw new BRException("Erro ao fazer login: " + ex.toString());
 		}

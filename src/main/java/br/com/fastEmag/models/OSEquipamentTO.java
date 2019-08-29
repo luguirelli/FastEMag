@@ -8,7 +8,7 @@ public class OSEquipamentTO {
 
 	private String equipament;
 	private String os;
-	private Date dateOS;
+	private String dateOS;
 	private String employee;
 	private String sector;
 	private String serialNumber;
@@ -39,11 +39,11 @@ public class OSEquipamentTO {
 		this.os = os;
 	}
 
-	public Date getDateOS() {
+	public String getDateOS() {
 		return dateOS;
 	}
 
-	public void setDateOS(Date dateOS) {
+	public void setDateOS(String dateOS) {
 		this.dateOS = dateOS;
 	}
 

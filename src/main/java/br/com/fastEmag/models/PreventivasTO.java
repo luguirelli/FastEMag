@@ -7,7 +7,7 @@ import java.util.List;
 public class PreventivasTO {
 
 	private String equipament;
-	private Date nextPreventive;
+	private String nextPreventive;
 	private String sector;
 	private String serialNumber;
 
@@ -27,11 +27,11 @@ public class PreventivasTO {
 		this.equipament = equipament;
 	}
 
-	public Date getNextPreventive() {
+	public String getNextPreventive() {
 		return nextPreventive;
 	}
 
-	public void setNextPreventive(Date nextPreventive) {
+	public void setNextPreventive(String nextPreventive) {
 		this.nextPreventive = nextPreventive;
 	}
 

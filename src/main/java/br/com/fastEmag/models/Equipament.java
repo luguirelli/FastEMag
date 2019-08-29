@@ -34,38 +34,37 @@ public class Equipament {
 
 	@Column(name = "DS_MODELO")
 	private String model;
-	
+
 	@Column(name = "DS_NUMERO_ANVISA")
 	private String anvisaNumber;
-	
+
 	@Column(name = "DS_FUNCAO")
 	private String function;
 
 	@Column(name = "DS_NUMERO_SERIE")
 	private String serialNumber;
-	
+
 	@Column(name = "DS_GRAU_IMPORTANCIA")
 	private String importance;
-	
+
 	@Column(name = "DS_CRITICIDADE")
 	private String criticality;
-	
+
 	@Column(name = "DT_PROXIMA_PREVENTIVA")
-	@JsonFormat(pattern="dd-MM-yyyy")
-	private Date nextPreventive;
-	
+	private String nextPreventive;
+
 	@ManyToOne(targetEntity = HospitalSector.class, fetch = FetchType.EAGER)
 	@JsonIgnore
 	@JoinColumn(name = "ID_SETOR")
 	@NotNull
 	private HospitalSector hospitalSector;
-	
+
 	@ManyToOne(targetEntity = PatternEquipament.class, fetch = FetchType.EAGER)
 	@JsonIgnore
 	@JoinColumn(name = "ID_EQ_PADRAO")
 	@NotNull
 	private PatternEquipament patternEquipament;
-	
+
 	@ManyToOne(targetEntity = Hospital.class, fetch = FetchType.EAGER)
 	@JsonIgnore
 	@JoinColumn(name = "ID_HOSPITAL")
@@ -144,11 +143,11 @@ public class Equipament {
 		this.criticality = criticality;
 	}
 
-	public Date getNextPreventive() {
+	public String getNextPreventive() {
 		return nextPreventive;
 	}
 
-	public void setNextPreventive(Date nextPreventive) {
+	public void setNextPreventive(String nextPreventive) {
 		this.nextPreventive = nextPreventive;
 	}
 
@@ -175,5 +174,5 @@ public class Equipament {
 	public void setHospital(Hospital hospital) {
 		this.hospital = hospital;
 	}
-	
+
 }

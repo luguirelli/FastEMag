@@ -11,5 +11,7 @@ public interface PatternEquipamentRepository extends JpaRepository<PatternEquipa
 	@Query(value = "select * from TB_EQUIPAMENTO_PADRAO eq where eq.ID_EQUIPAMENTO_PADRAO=:patternEquipamentId", nativeQuery = true)
 	PatternEquipament find(@Param(value = "patternEquipamentId") Long patternEquipamentId);
 	
-
+	@Query(value = "select * from TB_EQUIPAMENTO_PADRAO eq where eq.DS_NOME=:nome", nativeQuery = true)
+	PatternEquipament findByName(@Param(value = "nome") String nome);
+	
 }

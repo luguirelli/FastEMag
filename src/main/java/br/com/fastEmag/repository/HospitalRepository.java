@@ -13,7 +13,7 @@ public interface HospitalRepository extends JpaRepository<Hospital, Long> {
 
 	List<Hospital> findAll();
 	
-	@Query(value = "select * from TB_HOSPITAL  WHERE ID_HOSPITAL=:hospitalId", nativeQuery = true)
+	@Query(value = "select * from TB_HOSPITAL h WHERE h.ID_HOSPITAL=:hospitalId", nativeQuery = true)
 	Hospital find(@Param(value = "hospitalId") Long hospitalSectorId);
 
 }

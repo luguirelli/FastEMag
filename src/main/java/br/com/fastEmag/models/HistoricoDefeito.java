@@ -14,43 +14,31 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "TB_DEFEITO_EQUIPAMENTO")
-
-public class DefectEquipament {
+@Table(name = "TB_HISTORICO_DEFEITO")
+public class HistoricoDefeito {
 
 	@EmbeddedId
-	private DefectEquipamentId defectEquipamentId;
+	private HistoricoDefeitoId historicoDefeitoId;
 
-	public DefectEquipament() {
-
+	public HistoricoDefeito(HistoricoDefeitoId historicoDefeitoId) {
+		this.historicoDefeitoId = historicoDefeitoId;
 	}
 
-	public DefectEquipament(DefectEquipamentId defectEquipamentId) {
-		this.defectEquipamentId = defectEquipamentId;
+	public HistoricoDefeito() {
+		super();
 	}
-
-	@Column(name = "DT_DEFECT")
-	private String dtDefect;
 
 	@ManyToOne(targetEntity = Hospital.class, fetch = FetchType.EAGER)
 	@JsonIgnore
 	@JoinColumn(name = "ID_HOSPITAL")
 	private Hospital hospital;
 
-	public DefectEquipamentId getDefectEquipamentId() {
-		return defectEquipamentId;
+	public HistoricoDefeitoId getHistoricoDefeitoId() {
+		return historicoDefeitoId;
 	}
 
-	public void setDefectEquipamentId(DefectEquipamentId defectEquipamentId) {
-		this.defectEquipamentId = defectEquipamentId;
-	}
-
-	public String getDtDefect() {
-		return dtDefect;
-	}
-
-	public void setDtDefect(String dtDefect) {
-		this.dtDefect = dtDefect;
+	public void setHistoricoDefeitoId(HistoricoDefeitoId historicoDefeitoId) {
+		this.historicoDefeitoId = historicoDefeitoId;
 	}
 
 	public Hospital getHospital() {

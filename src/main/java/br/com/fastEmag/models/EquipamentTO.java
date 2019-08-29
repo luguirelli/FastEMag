@@ -13,8 +13,8 @@ public class EquipamentTO {
 	private String function;
 	private String criticality;
 	private String nextPreventive;
-	private Long hospitalSector;
-	private Long patternEquipament;
+	private String sector;
+	private String patternEquipament;
 	private Long hospitalId;
 
 	public String getName() {
@@ -81,22 +81,6 @@ public class EquipamentTO {
 		this.criticality = criticality;
 	}
 
-	public Long getHospitalSector() {
-		return hospitalSector;
-	}
-
-	public void setHospitalSector(Long hospitalSector) {
-		this.hospitalSector = hospitalSector;
-	}
-
-	public Long getPatternEquipament() {
-		return patternEquipament;
-	}
-
-	public void setPatternEquipament(Long patternEquipament) {
-		this.patternEquipament = patternEquipament;
-	}
-
 	public String getNextPreventive() {
 		return nextPreventive;
 	}
@@ -113,5 +97,20 @@ public class EquipamentTO {
 		this.hospitalId = hospitalId;
 	}
 
-	
+	public String getSector() {
+		return sector;
+	}
+
+	public void setSector(String sector) {
+		this.sector = sector;
+	}
+
+	public String getPatternEquipament() {
+		return patternEquipament;
+	}
+
+	public void setPatternEquipament(String patternEquipament) {
+		this.patternEquipament = patternEquipament;
+	}
+
 }

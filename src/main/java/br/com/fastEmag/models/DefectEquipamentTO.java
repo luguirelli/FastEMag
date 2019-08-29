@@ -9,7 +9,7 @@ public class DefectEquipamentTO {
 	private String equipament;
 	private String serialNumber;
 	private String defect;
-	private Date dateDefect;
+	private String dateDefect;
 	private String sector;
 
 	public DefectEquipamentTO(DefectEquipament defectEquipament) {
@@ -45,11 +45,11 @@ public class DefectEquipamentTO {
 		this.defect = defect;
 	}
 
-	public Date getDateDefect() {
+	public String getDateDefect() {
 		return dateDefect;
 	}
 
-	public void setDateDefect(Date dateDefect) {
+	public void setDateDefect(String dateDefect) {
 		this.dateDefect = dateDefect;
 	}
 

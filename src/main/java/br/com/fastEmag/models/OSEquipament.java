@@ -40,8 +40,7 @@ public class OSEquipament {
 	private Hospital hospital;
 
 	@Column(name = "DT_OS")
-	@JsonFormat(pattern = "dd-MM-yyyy")
-	private Date dtOS;
+	private String dtOS;
 
 	public OSEquipamentId getOsEquipamentId() {
 		return osEquipamentId;
@@ -59,11 +58,11 @@ public class OSEquipament {
 		this.employee = employee;
 	}
 
-	public Date getDtOS() {
+	public String getDtOS() {
 		return dtOS;
 	}
 
-	public void setDtOS(Date dtOS) {
+	public void setDtOS(String dtOS) {
 		this.dtOS = dtOS;
 	}
 
